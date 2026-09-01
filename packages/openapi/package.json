@@ -36,6 +36,7 @@
     "codegen": "vp exec jiti scripts/codegen.ts && vp check --fix"
   },
   "devDependencies": {
+    "@apidevtools/swagger-parser": "^12.1.0",
     "@types/node": "^26.1.1",
     "bumpp": "^11.1.0",
     "typescript": "^7.0.2",
