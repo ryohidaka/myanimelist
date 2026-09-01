@@ -1,5 +1,6 @@
 // This script is executed directly by Jiti and does not produce package code.
 // @ts-nocheck
+import SwaggerParser from "@apidevtools/swagger-parser";
 import { readFile, writeFile } from "node:fs/promises";
 
 // MyAnimeList embeds the OpenAPI document in its Redoc page.
@@ -59,6 +60,13 @@ async function fetchSchema() {
   return extractSchema(await response.text());
 }
 
+// Validate the fetched document before writing it to disk. This prevents an
+// invalid schema from replacing the last known-good generated file.
+async function validateSchema(schema) {
+  await SwaggerParser.validate(structuredClone(schema));
+  console.log("OpenAPI schema is valid.");
+}
+
 function createMetadata(schema) {
   const info = schema.info ?? {};
   return {
@@ -85,6 +93,7 @@ async function hasSchemaChanged(schema) {
 }
 
 const schema = await fetchSchema();
+await validateSchema(schema);
 
 if (!(await hasSchemaChanged(schema))) {
   console.log("Schema is unchanged; skipping generated files.");
