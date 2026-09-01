@@ -1,6 +1,12 @@
-# Vite+ Monorepo Starter
+# MyAnimeList Monorepo
 
-A starter for creating a Vite+ monorepo.
+This repository contains shared packages for the MyAnimeList project.
+
+## Packages
+
+| Name                                        | Description                               |
+| ------------------------------------------- | ----------------------------------------- |
+| [`myanimelist-openapi`](./packages/openapi) | OpenAPI schema for the MyAnimeList API v2 |
 
 ## Contributing
 
