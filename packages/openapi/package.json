@@ -29,7 +29,8 @@
     "access": "public"
   },
   "scripts": {
-    "check": "vp check"
+    "check": "vp check",
+    "codegen": "vp exec jiti scripts/codegen.ts && vp check --fix"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",

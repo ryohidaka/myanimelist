@@ -26,6 +26,12 @@ vp run -r build
 vp run dev
 ```
 
+- Run OpenAPI code generation for the package:
+
+```bash
+vp run myanimelist-openapi#codegen
+```
+
 ## Commit Messages
 
 - Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
