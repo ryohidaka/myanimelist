@@ -20,7 +20,10 @@
     "url": "git+https://github.com/ryohidaka/myanimelist.git",
     "directory": "packages/openapi"
   },
-  "files": [],
+  "files": [
+    "openapi.json",
+    "openapi.meta.json"
+  ],
   "type": "module",
   "exports": {
     "./package.json": "./package.json"
