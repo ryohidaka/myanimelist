@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "ready": "vp check && vp run -r test && vp run -r build",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "release": "changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",
