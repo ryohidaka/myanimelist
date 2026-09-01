@@ -1,16 +1,24 @@
 {
   "name": "myanimelist-openapi",
   "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "description": "OpenAPI schema for the MyAnimeList API v2.",
+  "keywords": [
+    "anime",
+    "api",
+    "mal",
+    "myanimelist",
+    "openapi"
+  ],
+  "homepage": "https://github.com/ryohidaka/myanimelist/tree/main/packages/openapi#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/ryohidaka/myanimelist/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
+  "author": "ryohidaka <39184410+ryohidaka@users.noreply.github.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/ryohidaka/myanimelist.git",
+    "directory": "packages/openapi"
   },
   "files": [
     "dist"
