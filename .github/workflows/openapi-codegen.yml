@@ -1,0 +1,45 @@
+name: OpenAPI Codegen
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-openapi
+  cancel-in-progress: true
+
+jobs:
+  codegen:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Vite+
+        uses: voidzero-dev/setup-vp@v1
+        with:
+          cache: true
+          run-install: true
+
+      - name: Generate and validate OpenAPI schema
+        run: vp run myanimelist-openapi#codegen
+
+      - name: Create pull request when schema changed
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore(openapi): update schema"
+          title: "chore(openapi): update schema"
+          body: |
+            This PR updates the OpenAPI schema from the MyAnimeList API documentation.
+
+            The generated schema was validated before creating this PR.
+          branch: automation/update-openapi
+          delete-branch: true
+          reviewers: ryohidaka
+          sign-commits: true
